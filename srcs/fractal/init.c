@@ -64,8 +64,11 @@ void	get_julia_starting_values(t_data *data, int ac, char **av)
 
 void init(t_data *data)
 {
-	data->sx = 2.0;
+	/* data->sx = 2.0;
 	data->rx = 0.5;
-	data->fx = 1.0;
+	data->fx = 1.0; */
+	data->palette = ft_calloc((MAX_ITERATION + 1), sizeof(int));
+	data->color_pattern = -1;
+	data->color = 0;
 	complex_limits(data);
 }

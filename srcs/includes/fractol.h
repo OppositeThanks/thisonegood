@@ -6,7 +6,7 @@
 /*   By: lperrin <lperrin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:14:45 by lperrin           #+#    #+#             */
-/*   Updated: 2022/11/23 11:23:44 by lperrin          ###   ########.fr       */
+/*   Updated: 2022/12/19 11:32:58 by lperrin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,24 @@ typedef struct s_data
 	double		max_it;
 	double		kr;
 	double		ki;
-	double		sx;
-	double		rx;
-	double		fx;
 	int			x;
 	int			y;
 	double		zoom;
-
+	int			xmouse;
+	int			ymouse;
+	int			color;
+	int			color_pattern;
+	int			*palette;
 }				t_data;
 
-typedef struct s_rgba
+/* typedef struct s_rgba
 {
 	int			r;
 	int			g;
 	int			b;
 	int			t;
 
-}				t_rgb;
+}				t_rgb; */
 
 void			help_mess(t_data *data);
 void			clear_exit(int exit_code, t_data *data);
@@ -61,4 +62,10 @@ double			ft_atof(char *str);
 void			my_scrollhook(double xdelta, double ydelta, void *param);
 void			render(t_data *data);
 void			my_keyhook(mlx_key_data_t keycode, void *param);
+void			julia(t_data *data, double cr, double ci);
+void			mandelbrot(t_data *data, double cr, double ci);
+int				julia_shift_plus(t_data *data);
+int				julia_shift_moins(t_data *data);
+void			color_shift(t_data *data);
+void			reset_image(t_data *data);
 #endif
